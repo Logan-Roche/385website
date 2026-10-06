@@ -1,0 +1,88 @@
+[
+  {
+    "objectID": "ae03-gerrymander.html",
+    "href": "ae03-gerrymander.html",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "",
+    "text": "Load the tidyverse, usdata, and sjPlot packages, and get the gerrymander data out of the usdata package. View the data using glimpse.\n\nlibrary(tidyverse)\nlibrary(usdata)\nlibrary(sjPlot)\n\ngerrymander &lt;- usdata::gerrymander\n\nglimpse(gerrymander)\n\nRows: 435\nColumns: 12\n$ district   &lt;chr&gt; \"AK-AL\", \"AL-01\", \"AL-02\", \"AL-03\", \"AL-04\", \"AL-05\", \"AL-0…\n$ last_name  &lt;chr&gt; \"Young\", \"Byrne\", \"Roby\", \"Rogers\", \"Aderholt\", \"Brooks\", \"…\n$ first_name &lt;chr&gt; \"Don\", \"Bradley\", \"Martha\", \"Mike D.\", \"Rob\", \"Mo\", \"Gary\",…\n$ party16    &lt;chr&gt; \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"D\", \"R\", \"R\", \"R\", \"R\",…\n$ clinton16  &lt;dbl&gt; 37.6, 34.1, 33.0, 32.3, 17.4, 31.3, 26.1, 69.8, 30.2, 41.7,…\n$ trump16    &lt;dbl&gt; 52.8, 63.5, 64.9, 65.3, 80.4, 64.7, 70.8, 28.6, 65.0, 52.4,…\n$ dem16      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,…\n$ state      &lt;chr&gt; \"AK\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AR\", \"AR\",…\n$ party18    &lt;chr&gt; \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"D\", \"R\", \"R\", \"R\", \"R\",…\n$ dem18      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0,…\n$ flip18     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,…\n$ gerry      &lt;fct&gt; mid, high, high, high, high, high, high, high, mid, mid, mi…\n\ngerrymander &lt;- gerrymander %&gt;% \n  mutate(flip18 = factor(flip18, levels = c(-1, 0, 1),\n                         labels = c(\"D to R\", \"No flip\", \"R to D\")))",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "ae03-gerrymander.html#getting-started",
+    "href": "ae03-gerrymander.html#getting-started",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "",
+    "text": "Load the tidyverse, usdata, and sjPlot packages, and get the gerrymander data out of the usdata package. View the data using glimpse.\n\nlibrary(tidyverse)\nlibrary(usdata)\nlibrary(sjPlot)\n\ngerrymander &lt;- usdata::gerrymander\n\nglimpse(gerrymander)\n\nRows: 435\nColumns: 12\n$ district   &lt;chr&gt; \"AK-AL\", \"AL-01\", \"AL-02\", \"AL-03\", \"AL-04\", \"AL-05\", \"AL-0…\n$ last_name  &lt;chr&gt; \"Young\", \"Byrne\", \"Roby\", \"Rogers\", \"Aderholt\", \"Brooks\", \"…\n$ first_name &lt;chr&gt; \"Don\", \"Bradley\", \"Martha\", \"Mike D.\", \"Rob\", \"Mo\", \"Gary\",…\n$ party16    &lt;chr&gt; \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"D\", \"R\", \"R\", \"R\", \"R\",…\n$ clinton16  &lt;dbl&gt; 37.6, 34.1, 33.0, 32.3, 17.4, 31.3, 26.1, 69.8, 30.2, 41.7,…\n$ trump16    &lt;dbl&gt; 52.8, 63.5, 64.9, 65.3, 80.4, 64.7, 70.8, 28.6, 65.0, 52.4,…\n$ dem16      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,…\n$ state      &lt;chr&gt; \"AK\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AR\", \"AR\",…\n$ party18    &lt;chr&gt; \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"D\", \"R\", \"R\", \"R\", \"R\",…\n$ dem18      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0,…\n$ flip18     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,…\n$ gerry      &lt;fct&gt; mid, high, high, high, high, high, high, high, mid, mid, mi…\n\ngerrymander &lt;- gerrymander %&gt;% \n  mutate(flip18 = factor(flip18, levels = c(-1, 0, 1),\n                         labels = c(\"D to R\", \"No flip\", \"R to D\")))",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "ae03-gerrymander.html#congressional-districts-per-state",
+    "href": "ae03-gerrymander.html#congressional-districts-per-state",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "1. Congressional districts per state",
+    "text": "1. Congressional districts per state\nWhich state has the most congressional districts? The least? How many congressional districts are there in this state? Use functions such as table, tbl_summary or count.\n\ngerrymander %&gt;% \n  count(state, sort = TRUE)\n\n# A tibble: 50 × 2\n   state     n\n   &lt;chr&gt; &lt;int&gt;\n 1 CA       53\n 2 TX       36\n 3 FL       27\n 4 NY       27\n 5 IL       18\n 6 PA       18\n 7 OH       16\n 8 GA       14\n 9 MI       14\n10 NC       13\n# ℹ 40 more rows\n\n\n\ngerrymander %&gt;% \n  count(state) %&gt;% \n  filter(n == min(n))\n\n# A tibble: 7 × 2\n  state     n\n  &lt;chr&gt; &lt;int&gt;\n1 AK        1\n2 DE        1\n3 MT        1\n4 ND        1\n5 SD        1\n6 VT        1\n7 WY        1\n\n\nAnswer: CA has the most congressional districts, with 53 districts. The fewest is tied between AK, DE, MT, ND, SD, VT, WY with 1 district per state.",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "ae03-gerrymander.html#districts-at-the-tails",
+    "href": "ae03-gerrymander.html#districts-at-the-tails",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "2. Districts at the tails",
+    "text": "2. Districts at the tails\nMake side-by-side box plots of percent of vote received by Trump in the 2016 Presidential Election by prevalence of gerrymandering. Identify any Congressional Districts that are potential outliers — points that fall well outside the whiskers of their box, meaning that district’s Trump vote share was unusually high or low compared to other districts with the same gerrymandering prevalence. What information can you share about them?\n\ngerrymander %&gt;% \n  group_by(gerry) %&gt;% \n  summarize(median = median(trump16), q1 = quantile(trump16, .25), q3 = quantile(trump16, .75))\n\n# A tibble: 3 × 4\n  gerry median    q1    q3\n  &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 low     48.4  36.3  54.7\n2 mid     48.0  34.8  57.9\n3 high    50.5  33.5  60.8\n\n\n\nggplot(gerrymander, aes(x = gerry, y = trump16)) +\n  geom_boxplot() +\n  labs(x = \"Prevalence of gerrymandering\",\n       y = \"Percent of 2016 vote for Trump\",\n       title = \"Trump 2016 vote share by gerrymandering prevalence\")\n\n\n\n\n\n\n\n\n\ngerrymander %&gt;% \n  group_by(gerry) %&gt;% \n  mutate(q1  = quantile(trump16, 0.25),\n         q3  = quantile(trump16, 0.75),\n         iqr = q3 - q1) %&gt;% \n  filter(trump16 &lt; q1 - 1.5 * iqr | trump16 &gt; q3 + 1.5 * iqr) %&gt;% \n  select(district, state, gerry, trump16, clinton16, party16, party18, flip18)\n\n# A tibble: 2 × 8\n# Groups:   gerry [1]\n  district state gerry trump16 clinton16 party16 party18 flip18 \n  &lt;chr&gt;    &lt;chr&gt; &lt;fct&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;fct&gt;  \n1 NY-13    NY    low       5.4      92.3 D       D       No flip\n2 NY-15    NY    low       4.9      93.8 D       D       No flip\n\n\nAnswer: All three medians are close together. High is highest at about 50%, mid is lowest at 48%, and low sits around 48%. The bigger difference is spread — the high group’s box is much wider than the low group’s. There are two outliers, NY-13 and NY-15. Both are in the low group, and both are unusually low, not high. Trump got 5.4% in NY-13 and 4.9% in NY-15, while the group median is near 48%. Clinton got 92.3% and 93.8%. Both are New York City seats. Democrats won them in 2016 and kept them in 2018.",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "ae03-gerrymander.html#gerrymandering-and-flipping",
+    "href": "ae03-gerrymander.html#gerrymandering-and-flipping",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "3. Gerrymandering and flipping",
+    "text": "3. Gerrymandering and flipping\nThis relationship can be looked at from two directions — does gerrymandering predict a 2018 flip, and does a 2018 flip predict gerrymandering? Support both with a visualization and summary statistics. The plot answers “what does the mix look like within each group?”; the table gives the exact proportions the plot is showing. Write 1-2 bullet points about what you noticed from each plot. Use specific numbers in your answer.\nDirection 1: Is a Congressional District more likely to have high prevalence of gerrymandering if a Democrat was able to flip the seat in the 2018 election? To compare the breakdown of gerrymandering prevalence within each flipped group, make sure flip18 is on the x axis and that your percents add up to 100% within each category.\n\nggplot(gerrymander, aes(x = flip18, fill = gerry)) +\n  geom_bar(position = \"fill\") +\n  scale_y_continuous(labels = scales::percent) +\n  labs(x = \"2018 flip status\",\n       y = \"Percent of districts\",\n       fill = \"Gerrymandering\",\n       title = \"Gerrymandering prevalence within each flip group\")\n\n\n\n\n\n\n\n\n\n# Direction 1\ngerrymander %&gt;% \n  count(flip18, gerry) %&gt;% \n  group_by(flip18) %&gt;% \n  mutate(percent = round(100 * n / sum(n), 1))\n\n# A tibble: 8 × 4\n# Groups:   flip18 [3]\n  flip18  gerry     n percent\n  &lt;fct&gt;   &lt;fct&gt; &lt;int&gt;   &lt;dbl&gt;\n1 D to R  low       2    40  \n2 D to R  mid       3    60  \n3 No flip low      52    13.3\n4 No flip mid     242    61.7\n5 No flip high     98    25  \n6 R to D  low       8    21.1\n7 R to D  mid      25    65.8\n8 R to D  high      5    13.2\n\n\n\nAbout 13.2% of districts that flipped R to D had high gerrymandering. For districts that didn’t flip, it was about 25%. So flipped seats were less gerrymandered, not more.\nMid is the biggest group either way — about 66% of the flips and about 62% of the no-flips. That makes the gap fairly small. The “D to R” group only has 5 districts, so its 60/40 split doesn’t mean much.\n\nDirection 2: Is a Congressional District more likely to be flipped to a Democratic seat if it has high prevalence of gerrymandering, or low prevalence? Same two variables, just flipped — so now gerry is on the x-axis. Again, make sure your percents add up to 100% within each category.\n\nggplot(gerrymander, aes(x = gerry, fill = flip18)) +\n  geom_bar(position = \"fill\") +\n  scale_y_continuous(labels = scales::percent) +\n  labs(x = \"Prevalence of gerrymandering\",\n       y = \"Percent of districts\",\n       fill = \"2018 flip status\",\n       title = \"Flip status within each gerrymandering group\")\n\n\n\n\n\n\n\n\n\n# Direction 2\ngerrymander %&gt;% \n  count(gerry, flip18) %&gt;% \n  group_by(gerry) %&gt;% \n  mutate(percent = round(100 * n / sum(n), 1))\n\n# A tibble: 8 × 4\n# Groups:   gerry [3]\n  gerry flip18      n percent\n  &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;\n1 low   D to R      2     3.2\n2 low   No flip    52    83.9\n3 low   R to D      8    12.9\n4 mid   D to R      3     1.1\n5 mid   No flip   242    89.6\n6 mid   R to D     25     9.3\n7 high  No flip    98    95.1\n8 high  R to D      5     4.9\n\n\n\nAbout 4.9% of high-gerrymandering districts flipped R to D. For low, it was about 12.9%, and for mid about 9.3%.\nThis is the same finding from the other side. A flip was about two and a half times as likely in a low district as in a high one. That fits the idea that gerrymandering protects a seat. Both tables use the same 435 districts — only the denominator changes.",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "ae03-gerrymander.html#gerrymandering-and-presidential-margin",
+    "href": "ae03-gerrymander.html#gerrymandering-and-presidential-margin",
+    "title": "AE03 - Exploring gerrymandring",
+    "section": "4. Gerrymandering and presidential margin",
+    "text": "4. Gerrymandering and presidential margin\nUsing mutate, create a new variable, margin16, measuring how many percentage points Clinton won or lost by in each district (clinton16 - trump16). Does gerrymandering prevalence relate to how lopsided the 2016 presidential race was in that district? Report the min, mean, and max margin by gerry level, then visualize the full distribution with a violin + boxplot combo. Describe the shape, center, and spread of each group.\n\ngerrymander &lt;- gerrymander %&gt;% \n  mutate(margin16 = clinton16 - trump16)\n\ngerrymander %&gt;% \n  group_by(gerry) %&gt;% \n  summarize(n = n(),\n            min = min(margin16),\n            median = median(margin16),\n            mean = mean(margin16),\n            max = max(margin16))\n\n# A tibble: 3 × 6\n  gerry     n   min median  mean   max\n  &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 low      62 -54.9  -2.05  6.32  88.9\n2 mid     270 -63    -1.3   3.25  82.8\n3 high    103 -63    -6.5   1.34  78.2\n\n\n\nggplot(gerrymander, aes(x = gerry, y = margin16)) +\n  geom_violin(fill = \"lightblue\") +\n  geom_boxplot(width = 0.15) +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  labs(x = \"Prevalence of gerrymandering\",\n       y = \"Clinton margin, 2016 (percentage points)\",\n       title = \"2016 margin by gerrymandering prevalence\")\n\n\n\n\n\n\n\n\n\nLow: right-skewed. Most districts sit just below zero, with a long thin tail up to +88.9. That tail is the two NYC districts from Q2. Mean 6.32, median near −3, range −54.9 to 88.9.\nMid: the most symmetric group and the widest range. Centered at about zero (mean 3.25, median near 0), range −63 to 82.8.\nHigh: center is slightly Republican (mean 1.34, median near −7). The violin is fat at the top and bottom and thin in the middle. Range −63 to 78.2.\n\nOverall: the centers barely move. All three means are within about 6 points of zero, and they shift slightly Republican as prevalence goes up (6.32 → 3.25 → 1.34). Spread is what changes. The low group’s box is tighter than mid’s or high’s, and the high group has a lot of districts at both extremes and few in the middle. That’s the packing and cracking pattern. So gerrymandering prevalence says less about who won and more about how lopsided the win was.",
+    "crumbs": [
+      "Home",
+      "Assigments",
+      "AE 03"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "385website",
+    "section": "",
+    "text": "The webstie example I like is the nbdev website. This could be a good website for a product: link"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "My name is Logan. I am a senior studying CS and I graduate in December."
+  }
+]

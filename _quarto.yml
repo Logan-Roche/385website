@@ -1,0 +1,30 @@
+project:
+  type: website
+
+website:
+  title: "CSCI 385"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+        
+  sidebar:
+    style: "docked"
+    search: true
+    contents: 
+      - section: "Assigments"
+        contents: 
+          - href: ae03-gerrymander.qmd
+            text: AE 03
+
+format:
+  html:
+    theme:
+      - darkly
+      - brand
+    css: styles.css
+    toc: true
+
+
+
